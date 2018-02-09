@@ -1,4 +1,6 @@
 # Intelligent Mobile Bus Ticketing System
+![alt text](https://github.com/amrshosny/imobuts-laravel/blob/master/Project%20Documentation/imobuts-logo.png)
+
 The issue of fast, safe, and non-distracting payment method is very
 paramount in any transportation, especially if it affects the safety of
 passengers. Therefore, an efficient solution has to be applied to enforce the
