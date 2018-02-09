@@ -1,4 +1,4 @@
-#Intelligent Mobile Bus Ticketing System
+# Intelligent Mobile Bus Ticketing System
 The issue of fast, safe, and non-distracting payment method is very
 paramount in any transportation, especially if it affects the safety of
 passengers. Therefore, an efficient solution has to be applied to enforce the
