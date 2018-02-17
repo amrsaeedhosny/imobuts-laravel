@@ -12,6 +12,7 @@
 */
 
 use Illuminate\Support\Facades\Route;
+
 Route::group(['prefix'=>'/'],function() {
 	Auth::routes();
 	Route::get( '/', function () {
@@ -24,6 +25,7 @@ Route::group(['prefix'=>'/api'],function(){
 	Route::get('signIn','APIUserController@signIn');
 	Route::post('updateProfile','APIUserController@updateProfile');
 	Route::get('getProfile','APIUserController@getProfile');
+    Route::get('resetPassword,APIUserController@resetPassword');
 });
 
 Route::get('docs', function(){

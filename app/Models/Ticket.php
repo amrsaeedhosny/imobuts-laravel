@@ -13,12 +13,11 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * Class Ticket
  * 
  * @property int $id
- * @property string $cMessage
  * @property float $value
- * @property int $customerID
+ * @property int $passengerID
  * @property \Carbon\Carbon $date
  * 
- * @property \App\Models\Customer $customer
+ * @property \App\Models\Passenger $passenger
  * @property \Illuminate\Database\Eloquent\Collection $payments
  *
  * @package App\Models
@@ -29,7 +28,7 @@ class Ticket extends Eloquent
 
 	protected $casts = [
 		'value' => 'float',
-		'customerID' => 'int'
+		'passengerID' => 'int'
 	];
 
 	protected $dates = [
@@ -37,15 +36,14 @@ class Ticket extends Eloquent
 	];
 
 	protected $fillable = [
-		'cMessage',
 		'value',
-		'customerID',
+		'passengerID',
 		'date'
 	];
 
 	public function customer()
 	{
-		return $this->belongsTo(\App\Models\Customer::class, 'customerID');
+		return $this->belongsTo(\App\Models\Passenger::class, 'passengerID');
 	}
 
 	public function payments()

@@ -10,7 +10,7 @@ namespace App\Models;
 use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
- * Class Customer
+ * Class Passenger
  * 
  * @property int $id
  * @property string $fullname
@@ -28,7 +28,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class Customer extends Eloquent
+class Passenger extends Eloquent
 {
 	protected $casts = [
 		'balance' => 'float'
@@ -50,11 +50,11 @@ class Customer extends Eloquent
 
 	public function payments()
 	{
-		return $this->hasMany(\App\Models\Payment::class, 'customerID');
+		return $this->hasMany(\App\Models\Payment::class, 'passengerID');
 	}
 
 	public function tickets()
 	{
-		return $this->hasMany(\App\Models\Ticket::class, 'customerID');
+		return $this->hasMany(\App\Models\Ticket::class, 'passengerID');
 	}
 }

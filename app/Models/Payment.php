@@ -14,10 +14,10 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * 
  * @property int $id
  * @property \Carbon\Carbon $created_at
- * @property int $customerID
+ * @property int $passengerID
  * @property int $ticketID
  * 
- * @property \App\Models\Customer $customer
+ * @property \App\Models\Passenger $passenger
  * @property \App\Models\Ticket $ticket
  *
  * @package App\Models
@@ -27,18 +27,18 @@ class Payment extends Eloquent
 	public $timestamps = false;
 
 	protected $casts = [
-		'customerID' => 'int',
+		'passengerID' => 'int',
 		'ticketID' => 'int'
 	];
 
 	protected $fillable = [
-		'customerID',
+		'passengerID',
 		'ticketID'
 	];
 
-	public function customer()
+	public function passenger()
 	{
-		return $this->belongsTo(\App\Models\Customer::class, 'customerID');
+		return $this->belongsTo(\App\Models\Passenger::class, 'passengerID');
 	}
 
 	public function ticket()
