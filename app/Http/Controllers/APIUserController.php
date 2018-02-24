@@ -98,12 +98,48 @@ class APIUserController extends Controller
                                    
     }
 
+    /**
+     * @param  string  $id  The unique id of the user
+	 * @param  string  $email  The email of the user
+	 * @param  string  $username  The username of the user
+	 * @param  string  $password  The password of the user
+	 * @return array
+	 */                                                           
 	public function updateProfile(Request $request){
-
+        $email = $request->email ;
+    	$password = $request->password;
+    	$username = $request->username;
+	    $validator = Validator::make($request->toArray(),[
+		    'username' => 'required|unique:passengers',
+		    'password' => 'required',
+		    'email' => 'required|unique:passengers'
+	    ]);
+	    $response = array('response' => [], 'success'=>true);
+	    if($validator->fails()){
+		    $response['response'] = $validator->messages();
+		    $response['success'] = false;
+	    } else{
+	    	$passenger = Passenger::find($request->id);
+            $passenger->username = $username;
+            $passenger->email =  $email;
+            $passenger->password =  bcrypt($password);
+		    $passenger->update();
+	    }
+	    return response()->json($response);
 	}
 
-	public function getProfile(Request $request){
+   public function getProfile(Request $request){
+     $passenger = Passenger::find($request->id);
+     $response = array('response' => [], 'success'=>true);    
+     if ($passenger)
+      {
+       $response['response'] = $passenger;
+      }
+     else
+      {
+       $response['success'] = false;
+      }            
+     return response()->json($response);                  
 
-	}
-
+    }
 }

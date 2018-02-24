@@ -26,6 +26,8 @@ Route::group(['prefix'=>'/api'],function(){
 	Route::post('updateProfile','APIUserController@updateProfile');
 	Route::get('getProfile','APIUserController@getProfile');
     Route::get('resetPassword,APIUserController@resetPassword');
+    Route::get('account','APIUserController@getProfile');
+
 });
 
 Route::get('docs', function(){
