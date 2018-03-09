@@ -23,7 +23,7 @@ Route::group(['prefix'=>'/'],function() {
 Route::group(['prefix'=>'/api'],function(){
 	Route::post('signUp','APIUserController@signUp');
 	Route::get('signIn','APIUserController@signIn');
-    Route::get('resetPassword,APIUserController@resetPassword');
+	Route::get( 'resetPassword', 'APIUserController@resetPassword' );
 	Route::group( [ 'middleware' => \App\Http\Middleware\PassengerLoggedIn::class ], function () {
 		Route::post( 'updateProfile', 'APIUserController@updateProfile' );
 		Route::get( 'getProfile', 'APIUserController@getProfile' );
