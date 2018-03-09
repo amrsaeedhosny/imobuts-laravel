@@ -36,7 +36,8 @@ class Passenger extends Eloquent
 
 	protected $hidden = [
 		'password',
-		'token'
+		'token',
+		'id'
 	];
 
 	protected $fillable = [
