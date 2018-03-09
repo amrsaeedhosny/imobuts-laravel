@@ -24,12 +24,14 @@ Route::group(['prefix'=>'/api'],function(){
 	Route::post('signUp','APIUserController@signUp');
 	Route::get('signIn','APIUserController@signIn');
     Route::get('resetPassword,APIUserController@resetPassword');
+	Route::group( [ 'middleware' => 'PassengerLoggedIn' ], function () {
+		Route::post( 'updateProfile', 'APIUserController@updateProfile' );
+		Route::get( 'getProfile', 'APIUserController@getProfile' );
 
-    Route::post('updateProfile','APIUserController@updateProfile');
-	Route::get('getProfile','APIUserController@getProfile');
-    
-    Route::get('tickets','APITicketController@getTickets');
-    Route::get('tickets/{id}' ,'APITicketController@getTicketDetails'); 
+		Route::get( 'tickets', 'APITicketController@getTickets' );
+		Route::get( 'tickets/{id}', 'APITicketController@getTicketDetails' );
+	} );
+
 
 });
 

@@ -41,7 +41,7 @@ class Ticket extends Eloquent
 		'date'
 	];
 
-	public function customer()
+	public function passenger()
 	{
 		return $this->belongsTo(\App\Models\Passenger::class, 'passengerID');
 	}

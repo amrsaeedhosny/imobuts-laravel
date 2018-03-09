@@ -42,6 +42,16 @@
                             </li>
 
 
+                            <li>
+                                <a href="#APITicket">APITicket</a>
+                                <ul>
+                                    <li><a href="#APITicket_getTickets">getTickets</a></li>
+
+                                    <li><a href="#APITicket_getTicketDetails">getTicketDetails</a></li>
+                                </ul>
+                            </li>
+
+
                         </ul>
                     </div>
                 </div>
@@ -193,7 +203,48 @@
                         </div> -->
                         <form class="api-explorer-form" uri="api/updateProfile" type="POST">
                           <div class="endpoint-paramenters">
-                            
+                              <h4>Parameters</h4>
+                              <ul>
+                                  <li class="parameter-header">
+                                      <div class="parameter-name">PARAMETER</div>
+                                      <div class="parameter-type">TYPE</div>
+                                      <div class="parameter-desc">DESCRIPTION</div>
+                                      <div class="parameter-value">VALUE</div>
+                                  </li>
+                                  <li>
+                                      <div class="parameter-name">token</div>
+                                      <div class="parameter-type">string</div>
+                                      <div class="parameter-desc">The unique token of the user</div>
+                                      <div class="parameter-value">
+                                          <input type="text" class="parameter-value-text" name="token">
+                                      </div>
+                                  </li>
+                                  <li>
+                                      <div class="parameter-name">email</div>
+                                      <div class="parameter-type">string</div>
+                                      <div class="parameter-desc">The email of the user</div>
+                                      <div class="parameter-value">
+                                          <input type="text" class="parameter-value-text" name="email">
+                                      </div>
+                                  </li>
+                                  <li>
+                                      <div class="parameter-name">username</div>
+                                      <div class="parameter-type">string</div>
+                                      <div class="parameter-desc">The username of the user</div>
+                                      <div class="parameter-value">
+                                          <input type="text" class="parameter-value-text" name="username">
+                                      </div>
+                                  </li>
+                                  <li>
+                                      <div class="parameter-name">password</div>
+                                      <div class="parameter-type">string</div>
+                                      <div class="parameter-desc">The password of the user</div>
+                                      <div class="parameter-value">
+                                          <input type="password" class="parameter-value-text" name="password">
+                                      </div>
+                                  </li>
+
+                              </ul>
                           </div>
                            <div class="generate-response" >
                               <!-- <input type="hidden" name="_method" value="POST"> -->
@@ -219,7 +270,124 @@
                         </div> -->
                         <form class="api-explorer-form" uri="api/getProfile" type="GET">
                           <div class="endpoint-paramenters">
-                            
+                              <h4>Parameters</h4>
+                              <ul>
+                                  <li class="parameter-header">
+                                      <div class="parameter-name">PARAMETER</div>
+                                      <div class="parameter-type">TYPE</div>
+                                      <div class="parameter-desc">DESCRIPTION</div>
+                                      <div class="parameter-value">VALUE</div>
+                                  </li>
+                                  <li>
+                                      <div class="parameter-name">token</div>
+                                      <div class="parameter-type">string</div>
+                                      <div class="parameter-desc">The unique token of the user</div>
+                                      <div class="parameter-value">
+                                          <input type="text" class="parameter-value-text" name="token">
+                                      </div>
+                                  </li>
+
+                              </ul>
+                          </div>
+                            <div class="generate-response">
+                                <!-- <input type="hidden" name="_method" value="GET"> -->
+                                <input type="submit" class="generate-response-btn" value="Generate Example Response">
+                            </div>
+                        </form>
+                        <hr>
+
+
+                        <a href="#" class="waypoint" name="APITicket"></a>
+                        <h2>APITicket</h2>
+                        <p></p>
+
+
+                        <a href="#" class="waypoint" name="APITicket_getTickets"></a>
+                        <div class="endpoint-header">
+                            <ul>
+                                <li><h2>GET</h2></li>
+                                <li><h3>getTickets</h3></li>
+                                <li>api/tickets</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <p class="endpoint-short-desc"></p>
+                        </div>
+                        <!--  <div class="parameter-header">
+                              <p class="endpoint-long-desc"></p>
+                         </div> -->
+                        <form class="api-explorer-form" uri="api/tickets" type="GET">
+                            <div class="endpoint-paramenters">
+                                <h4>Parameters</h4>
+                                <ul>
+                                    <li class="parameter-header">
+                                        <div class="parameter-name">PARAMETER</div>
+                                        <div class="parameter-type">TYPE</div>
+                                        <div class="parameter-desc">DESCRIPTION</div>
+                                        <div class="parameter-value">VALUE</div>
+                                    </li>
+                                    <li>
+                                        <div class="parameter-name">token</div>
+                                        <div class="parameter-type">string</div>
+                                        <div class="parameter-desc">The unique token of the user</div>
+                                        <div class="parameter-value">
+                                            <input type="text" class="parameter-value-text" name="token">
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="generate-response">
+                                <!-- <input type="hidden" name="_method" value="GET"> -->
+                                <input type="submit" class="generate-response-btn" value="Generate Example Response">
+                            </div>
+                        </form>
+                        <hr>
+
+                        <a href="#" class="waypoint" name="APITicket_getTicketDetails"></a>
+                        <div class="endpoint-header">
+                            <ul>
+                                <li><h2>GET</h2></li>
+                                <li><h3>getTicketDetails</h3></li>
+                                <li>api/tickets/{id}</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <p class="endpoint-short-desc"></p>
+                        </div>
+                        <!--  <div class="parameter-header">
+                              <p class="endpoint-long-desc"></p>
+                         </div> -->
+                        <form class="api-explorer-form" uri="api/tickets/{id}" type="GET">
+                            <div class="endpoint-paramenters">
+                                <h4>Parameters</h4>
+                                <ul>
+                                    <li class="parameter-header">
+                                        <div class="parameter-name">PARAMETER</div>
+                                        <div class="parameter-type">TYPE</div>
+                                        <div class="parameter-desc">DESCRIPTION</div>
+                                        <div class="parameter-value">VALUE</div>
+                                    </li>
+                                    <li>
+                                        <div class="parameter-name">token</div>
+                                        <div class="parameter-type">string</div>
+                                        <div class="parameter-desc">The unique token of the user</div>
+                                        <div class="parameter-value">
+                                            <input type="text" class="parameter-value-text" name="token">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="parameter-name">id</div>
+                                        <div class="parameter-type">integer</div>
+                                        <div class="parameter-desc">the id of the ticket</div>
+                                        <div class="parameter-value">
+                                            <input type="text" class="parameter-value-text" name="id">
+                                        </div>
+                                    </li>
+
+                                </ul>
                           </div>
                            <div class="generate-response" >
                               <!-- <input type="hidden" name="_method" value="GET"> -->
