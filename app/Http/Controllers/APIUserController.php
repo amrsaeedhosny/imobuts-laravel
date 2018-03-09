@@ -123,7 +123,7 @@ class APIUserController extends Controller {
 			$response['response'] = $validator->messages();
 			$response['success']  = false;
 		} else {
-			$passenger           = Passenger::find( $request->input( 'token' ) );
+			$passenger           = Passenger::where( 'token', $request->input( 'token' ) )->first();
 			$passenger->username = $username;
 			$passenger->email    = $email;
 			$passenger->password = bcrypt( $password );
@@ -139,7 +139,7 @@ class APIUserController extends Controller {
 	 * @return array
 	 */
 	public function getProfile( Request $request ) {
-		$passenger = Passenger::find( $request->input( 'token' ) );
+		$passenger = Passenger::where( 'token', $request->input( 'token' ) )->first();
 		$response  = array( 'response' => [], 'success' => true );
 		if ( $passenger ) {
 			$response['response'] = $passenger;
