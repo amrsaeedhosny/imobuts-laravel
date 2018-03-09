@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Passenger;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 
@@ -16,13 +17,9 @@ class APITicketController extends Controller {
 	 * @return array
 	 */
 	public function getTickets( Request $request ) {
-		$tickets  = Ticket::where( 'token', $request->input( 'token' ) )->get();   // id here means user id
-		$response = array( 'response' => [], 'success' => true );
-		if ( $tickets ) {
-			$response['response'] = $tickets;
-		} else {
-			$response['success'] = false;
-		}
+		$passenger                       = Passenger::where( 'token', $request->input( 'token' ) )->with( 'tickets' )->first();   // id here means user id
+		$response                        = array( 'response' => [], 'success' => true );
+		$response['response']['tickets'] = $passenger->tickets;
 
 		return response()->json( $response );
 
