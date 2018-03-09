@@ -85,6 +85,15 @@ class APIUserController extends Controller {
 	 * @return array
 	 */
 	public function resetPassword( Request $request ) {
+		$validator = Validator::make( $request->toArray(), [
+			'email' => 'required|exists:passengers',
+		] );
+		if ( $validator->fails() ) {
+			$response['response'] = $validator->messages();
+			$response['success']  = false;
+
+			return response()->json( $response );
+		}
 		$npass = Hash::make( str_random( 6 ) );
 
 		$data                = "Your New Password is" . $npass;
