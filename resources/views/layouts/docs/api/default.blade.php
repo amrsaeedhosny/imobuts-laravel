@@ -35,7 +35,9 @@
 
 									<li><a href="#APIUser_signIn">signIn</a></li>
 
-									<li><a href="#APIUser_updateProfile">updateProfile</a></li>
+                                    <li><a href="#APIUser_resetPassword">resetPassword</a></li>
+
+                                    <li><a href="#APIUser_updateProfile">updateProfile</a></li>
 
 									<li><a href="#APIUser_getProfile">getProfile</a></li>
 </ul>
@@ -179,10 +181,53 @@
 
                             </ul>
                           </div>
-                           <div class="generate-response" >
-                              <!-- <input type="hidden" name="_method" value="GET"> -->
-                              <input type="submit" class="generate-response-btn" value="Generate Example Response">
-                          </div>
+                            <div class="generate-response">
+                                <!-- <input type="hidden" name="_method" value="GET"> -->
+                                <input type="submit" class="generate-response-btn" value="Generate Example Response">
+                            </div>
+                        </form>
+                        <hr>
+
+                        <a href="#" class="waypoint" name="APIUser_resetPassword"></a>
+                        <div class="endpoint-header">
+                            <ul>
+                                <li><h2>GET</h2></li>
+                                <li><h3>resetPassword</h3></li>
+                                <li>api/resetPassword</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <p class="endpoint-short-desc"></p>
+                        </div>
+                        <!--  <div class="parameter-header">
+                              <p class="endpoint-long-desc"></p>
+                         </div> -->
+                        <form class="api-explorer-form" uri="api/resetPassword" type="GET">
+                            <div class="endpoint-paramenters">
+                                <h4>Parameters</h4>
+                                <ul>
+                                    <li class="parameter-header">
+                                        <div class="parameter-name">PARAMETER</div>
+                                        <div class="parameter-type">TYPE</div>
+                                        <div class="parameter-desc">DESCRIPTION</div>
+                                        <div class="parameter-value">VALUE</div>
+                                    </li>
+                                    <li>
+                                        <div class="parameter-name">email</div>
+                                        <div class="parameter-type">string</div>
+                                        <div class="parameter-desc">The email of the user</div>
+                                        <div class="parameter-value">
+                                            <input type="text" class="parameter-value-text" name="email">
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="generate-response" >
+                                <!-- <input type="hidden" name="_method" value="GET"> -->
+                                <input type="submit" class="generate-response-btn" value="Generate Example Response">
+                            </div>
                         </form>
                         <hr>
 
