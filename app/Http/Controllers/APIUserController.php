@@ -79,6 +79,11 @@ class APIUserController extends Controller {
 		return response()->json( $response );
 	}
 
+	/**
+	 * @param  string $email The email of the user
+	 *
+	 * @return array
+	 */
 	public function resetPassword( Request $request ) {
 		$npass = Hash::make( str_random( 6 ) );
 
