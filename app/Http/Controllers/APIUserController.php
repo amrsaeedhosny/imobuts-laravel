@@ -6,7 +6,6 @@ use App\Models\Passenger;
 use Dirape\Token\Token;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 /**
@@ -94,24 +93,10 @@ class APIUserController extends Controller {
 
 			return response()->json( $response );
 		}
-		$npass = Hash::make( str_random( 6 ) );
-
-		$data                = "Your New Password is" . $npass;
-		$passenger           = Passenger::find( $request->input( 'email' ) );
-		$passenger->password = $npass;
-		$passenger->update();
-
-		Mail::send( 'emails.send', [
-			'title' => "Password Reset",
-			$data,
-			function ( $message ) use ( $request ) {
-
-				$message->from( 'mokhtarashrakat@gmail.com', 'imobuts' );
-
-				$message->to( $request->input( 'email' ) );
-			}
-		] );
-
+		$npass = str_random( 6 );
+		Passenger::where( 'email', $request->input( 'email' ) )->update( [ 'password' => bcrypt( $npass ) ] );
+		$data = "Your New Password is " . $npass;
+		mail( $request->input( 'email' ), 'Password Reset', $data );
 		return response()->json( [ 'message' => 'Email sent to you with a new password' ] );
 
 	}
@@ -150,6 +135,7 @@ class APIUserController extends Controller {
 
 	/**
 	 * @param  string $token The unique token of the user
+	 *
 	 * @return array
 	 */
 	public function getProfile( Request $request ) {
