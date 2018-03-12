@@ -79,13 +79,12 @@ class APIUserController extends Controller
     
     public function resetPassword(Request $request){
         $npass = Hash::make(str_random(6));
-
         $data = "Your New Password is" + $npass;
-        $passenger = Passenger::find($request->email);
+        $passenger = Passenger::where(['email'=>$email])->first();
         $passenger->password = $npass;
         $passenger->update();
         
-        Mail::send('emails.send', ['title' => "Password Reset", $data , function ($message)
+        Mail::send('emails.send', ['title' => "Password Reset"], $data , function ($message)
         {
 
             $message->from('mokhtarashrakat@gmail.com', 'imobuts');
@@ -93,9 +92,7 @@ class APIUserController extends Controller
             $message->to($request->email);
 
         });
-                                   
-        return response()->json(['message' => 'Email sent to you with a new password']);
-                                   
+        return response()->json(['message' => 'Email sent to you with a new password']);                                   
     }
 
     /**
@@ -110,9 +107,8 @@ class APIUserController extends Controller
     	$password = $request->password;
     	$username = $request->username;
 	    $validator = Validator::make($request->toArray(),[
-		    'username' => 'required|unique:passengers',
-		    'password' => 'required',
-		    'email' => 'required|unique:passengers'
+		    'username' => 'unique:passengers',
+		    'email' => 'unique:passengers'
 	    ]);
 	    $response = array('response' => [], 'success'=>true);
 	    if($validator->fails()){
@@ -120,15 +116,18 @@ class APIUserController extends Controller
 		    $response['success'] = false;
 	    } else{
 	    	$passenger = Passenger::find($request->id);
-            $passenger->username = $username;
-            $passenger->email =  $email;
-            $passenger->password =  bcrypt($password);
+            if($username != null)
+              $passenger->username = $username;
+            if($email != null)
+              $passenger->email =  $email;
+            if($password != null)
+              $passenger->password =  bcrypt($password);
 		    $passenger->update();
 	    }
 	    return response()->json($response);
 	}
 
-   public function getProfile(Request $request){
+    public function getProfile(Request $request){
      $passenger = Passenger::find($request->id);
      $response = array('response' => [], 'success'=>true);    
      if ($passenger)
