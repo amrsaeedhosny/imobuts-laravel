@@ -31,8 +31,18 @@ class APIUserController extends Controller {
 		] );
 		$response  = array( 'response' => [], 'success' => true, 'token' => '' );
 		if ( $validator->fails() ) {
-			$response['response'] = $validator->messages();
+			$errors               = $validator->errors();
 			$response['success']  = false;
+			$response['response'] = new \stdClass();
+			if ( ! empty( $errors->first( 'username' ) ) ) {
+				$response['response']->username = $errors->first( 'username' );
+			}
+			if ( ! empty( $errors->first( 'email' ) ) ) {
+				$response['response']->email = $errors->first( 'email' );
+			}
+			if ( ! empty( $errors->first( 'password' ) ) ) {
+				$response['response']->password = $errors->first( 'password' );
+			}
 		} else {
 			$token               = new Token();
 			$passenger           = new Passenger();
@@ -62,15 +72,23 @@ class APIUserController extends Controller {
 		] );
 		$response  = array( 'response' => [], 'success' => true, 'token' => '' );
 		if ( $validator->fails() ) {
-			$response['response'] = $validator->messages();
+//			$response['response'] = $validator->messages();
+			$errors               = $validator->errors();
+			$response['response'] = new \stdClass();
+			if ( ! empty( $errors->first( 'username' ) ) ) {
+				$response['response']->username = $errors->first( 'username' );
+			}
+			if ( ! empty( $errors->first( 'password' ) ) ) {
+				$response['response']->password = $errors->first( 'password' );
+			}
 			$response['success']  = false;
-
 			return response()->json( $response );
 		}
 		$passenger = Passenger::where( [ 'username' => $username ] )->first();
 		if ( ! Hash::check( $password, $passenger->password ) ) {
-			$response['response']['password'] = "Password don't match";
-			$response['success']              = false;
+			$response['response']           = new \stdClass();
+			$response['response']->password = "Password don't match";
+			$response['success']            = false;
 		} else {
 			$response['token'] = Passenger::where( 'username', $username )->first()->token;
 		}
@@ -97,6 +115,7 @@ class APIUserController extends Controller {
 		Passenger::where( 'email', $request->input( 'email' ) )->update( [ 'password' => bcrypt( $npass ) ] );
 		$data = "Your New Password is " . $npass;
 		mail( $request->input( 'email' ), 'Password Reset', $data );
+
 		return response()->json( [ 'message' => 'Email sent to you with a new password' ] );
 
 	}

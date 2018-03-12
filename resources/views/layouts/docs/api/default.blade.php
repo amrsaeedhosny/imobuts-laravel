@@ -140,7 +140,7 @@
                         <a href="#" class="waypoint" name="APIUser_signIn"></a>
                         <div class="endpoint-header">
                             <ul>
-                            <li><h2>GET</h2></li>
+                                <li><h2>POST</h2></li>
                             <li><h3>signIn</h3></li>
                             <li>api/signIn</li>
                           </ul>
@@ -152,7 +152,7 @@
                        <!--  <div class="parameter-header">
                              <p class="endpoint-long-desc"></p>
                         </div> -->
-                        <form class="api-explorer-form" uri="api/signIn" type="GET">
+                        <form class="api-explorer-form" uri="api/signIn" type="POST">
                           <div class="endpoint-paramenters">
                             <h4>Parameters</h4>
                             <ul>
@@ -182,7 +182,7 @@
                             </ul>
                           </div>
                             <div class="generate-response">
-                                <!-- <input type="hidden" name="_method" value="GET"> -->
+                                <!-- <input type="hidden" name="_method" value="POST"> -->
                                 <input type="submit" class="generate-response-btn" value="Generate Example Response">
                             </div>
                         </form>
@@ -224,7 +224,7 @@
 
                                 </ul>
                             </div>
-                            <div class="generate-response" >
+                            <div class="generate-response">
                                 <!-- <input type="hidden" name="_method" value="GET"> -->
                                 <input type="submit" class="generate-response-btn" value="Generate Example Response">
                             </div>
