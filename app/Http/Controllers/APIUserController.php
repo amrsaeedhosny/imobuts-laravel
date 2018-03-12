@@ -111,6 +111,7 @@ class APIUserController extends Controller {
 			if ( ! empty( $errors->first( 'email' ) ) ) {
 				$response['response']->email = $errors->first( 'email' );
 			}
+			$response['success'] = false;
 			return response()->json( $response );
 		}
 		$npass = str_random( 6 );
@@ -118,7 +119,7 @@ class APIUserController extends Controller {
 		$data = "Your New Password is " . $npass;
 		mail( $request->input( 'email' ), 'Password Reset', $data );
 
-		return response()->json( [ 'message' => 'Email sent to you with a new password' ] );
+		return response()->json( [ 'message' => 'Email sent to you with a new password', 'success' => 'true' ] );
 
 	}
 
