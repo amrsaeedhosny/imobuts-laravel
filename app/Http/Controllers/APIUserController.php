@@ -106,9 +106,11 @@ class APIUserController extends Controller {
 			'email' => 'required|exists:passengers',
 		] );
 		if ( $validator->fails() ) {
-			$response['response'] = $validator->messages();
-			$response['success']  = false;
-
+			$errors               = $validator->errors();
+			$response['response'] = new \stdClass();
+			if ( ! empty( $errors->first( 'email' ) ) ) {
+				$response['response']->email = $errors->first( 'email' );
+			}
 			return response()->json( $response );
 		}
 		$npass = str_random( 6 );
@@ -139,7 +141,17 @@ class APIUserController extends Controller {
 		] );
 		$response  = array( 'response' => [], 'success' => true );
 		if ( $validator->fails() ) {
-			$response['response'] = $validator->messages();
+			$errors               = $validator->errors();
+			$response['response'] = new \stdClass();
+			if ( ! empty( $errors->first( 'email' ) ) ) {
+				$response['response']->email = $errors->first( 'email' );
+			}
+			if ( ! empty( $errors->first( 'password' ) ) ) {
+				$response['response']->password = $errors->first( 'password' );
+			}
+			if ( ! empty( $errors->first( 'username' ) ) ) {
+				$response['response']->username = $errors->first( 'username' );
+			}
 			$response['success']  = false;
 		} else {
 			$passenger           = Passenger::where( 'token', $request->input( 'token' ) )->first();
