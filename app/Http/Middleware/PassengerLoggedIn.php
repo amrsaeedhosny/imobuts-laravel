@@ -20,8 +20,10 @@ class PassengerLoggedIn {
 			'token' => 'required|exists:passengers',
 		] );
 		if ( $validator->fails() ) {
-			$response['response'] = $validator->messages();
-			$response['success']  = false;
+			$errors                      = $validator->messages();
+			$response['response']        = new \stdClass();
+			$response['success']         = false;
+			$response['response']->token = $errors->first( 'token' );
 
 			return response()->json( $response );
 		}

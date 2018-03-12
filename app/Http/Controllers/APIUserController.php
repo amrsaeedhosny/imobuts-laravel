@@ -29,11 +29,11 @@ class APIUserController extends Controller {
 			'password' => 'required',
 			'email'    => 'required|unique:passengers'
 		] );
-		$response  = array( 'response' => [], 'success' => true, 'token' => '' );
+		$response  = array( 'response' => new \stdClass(), 'success' => true, 'token' => '' );
 		if ( $validator->fails() ) {
 			$errors               = $validator->errors();
 			$response['success']  = false;
-			$response['response'] = new \stdClass();
+
 			if ( ! empty( $errors->first( 'username' ) ) ) {
 				$response['response']->username = $errors->first( 'username' );
 			}
@@ -70,11 +70,11 @@ class APIUserController extends Controller {
 			'username' => 'required|exists:passengers',
 			'password' => 'required',
 		] );
-		$response  = array( 'response' => [], 'success' => true, 'token' => '' );
+		$response  = array( 'response' => new \stdClass(), 'success' => true, 'token' => '' );
 		if ( $validator->fails() ) {
 //			$response['response'] = $validator->messages();
 			$errors               = $validator->errors();
-			$response['response'] = new \stdClass();
+
 			if ( ! empty( $errors->first( 'username' ) ) ) {
 				$response['response']->username = $errors->first( 'username' );
 			}
@@ -139,10 +139,10 @@ class APIUserController extends Controller {
 			'password' => 'required',
 			'email'    => 'required|unique:passengers'
 		] );
-		$response  = array( 'response' => [], 'success' => true );
+		$response  = array( 'response' => new \stdClass(), 'success' => true );
 		if ( $validator->fails() ) {
 			$errors               = $validator->errors();
-			$response['response'] = new \stdClass();
+
 			if ( ! empty( $errors->first( 'email' ) ) ) {
 				$response['response']->email = $errors->first( 'email' );
 			}
@@ -171,7 +171,7 @@ class APIUserController extends Controller {
 	 */
 	public function getProfile( Request $request ) {
 		$passenger = Passenger::where( 'token', $request->input( 'token' ) )->first();
-		$response  = array( 'response' => [], 'success' => true );
+		$response  = array( 'response' => new \stdClass(), 'success' => true );
 		if ( $passenger ) {
 			$response['response'] = $passenger;
 		} else {

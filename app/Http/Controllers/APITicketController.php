@@ -17,9 +17,9 @@ class APITicketController extends Controller {
 	 * @return array
 	 */
 	public function getTickets( Request $request ) {
-		$passenger                       = Passenger::where( 'token', $request->input( 'token' ) )->with( 'tickets' )->first();   // id here means user id
-		$response                        = array( 'response' => [], 'success' => true );
-		$response['response']['tickets'] = $passenger->tickets;
+		$passenger                     = Passenger::where( 'token', $request->input( 'token' ) )->with( 'tickets' )->first();   // id here means user id
+		$response                      = array( 'response' => new \stdClass(), 'success' => true );
+		$response['response']->tickets = $passenger->tickets;
 
 		return response()->json( $response );
 
@@ -33,7 +33,7 @@ class APITicketController extends Controller {
 	 */
 	public function getTicketDetails( Request $request ) {
 		$ticket   = Ticket::find( $request->input( 'id' ) );                                // id here means ticket id
-		$response = array( 'response' => [], 'success' => true );
+		$response = array( 'response' => new \stdClass(), 'success' => true );
 		if ( $ticket ) {
 			$response['response'] = $ticket;
 		} else {
