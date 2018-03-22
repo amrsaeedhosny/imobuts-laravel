@@ -31,26 +31,26 @@ class APIUserController extends Controller {
 		] );
 		$response  = array( 'response' => new \stdClass(), 'success' => true, 'token' => '' );
 		if ( $validator->fails() ) {
-			$errors               = $validator->errors();
+			$errors = $validator->errors();
 			$response['success']  = false;
 
-			if ( ! empty( $errors->first( 'username' ) ) ) {
+			if (!empty($errors->first( 'username' ))) {
 				$response['response']->username = $errors->first( 'username' );
 			}
-			if ( ! empty( $errors->first( 'email' ) ) ) {
+			if (!empty($errors->first( 'email' ))) {
 				$response['response']->email = $errors->first( 'email' );
 			}
-			if ( ! empty( $errors->first( 'password' ) ) ) {
+			if (!empty( $errors->first( 'password' ))) {
 				$response['response']->password = $errors->first( 'password' );
 			}
 		} else {
-			$token               = new Token();
-			$passenger           = new Passenger();
+			$token = new Token();
+			$passenger = new Passenger();
 			$passenger->username = $username;
 			$passenger->password = bcrypt( $password );
-			$passenger->email    = $email;
-			$passenger->token    = $token->Unique( 'passengers', 'token', 10 );
-			$response['token']   = $passenger->token;
+			$passenger->email = $email;
+			$passenger->token = $token->Unique( 'passengers', 'token', 10 );
+			$response['token'] = $passenger->token;
 			$passenger->save();
 		}
 
@@ -73,22 +73,22 @@ class APIUserController extends Controller {
 		$response  = array( 'response' => new \stdClass(), 'success' => true, 'token' => '' );
 		if ( $validator->fails() ) {
 //			$response['response'] = $validator->messages();
-			$errors               = $validator->errors();
+			$errors = $validator->errors();
 
-			if ( ! empty( $errors->first( 'username' ) ) ) {
+			if (!empty( $errors->first('username'))) {
 				$response['response']->username = $errors->first( 'username' );
 			}
-			if ( ! empty( $errors->first( 'password' ) ) ) {
+			if (!empty( $errors->first('password'))) {
 				$response['response']->password = $errors->first( 'password' );
 			}
-			$response['success']  = false;
+			$response['success'] = false;
 			return response()->json( $response );
 		}
 		$passenger = Passenger::where( [ 'username' => $username ] )->first();
-		if ( ! Hash::check( $password, $passenger->password ) ) {
-			$response['response']           = new \stdClass();
+		if (!Hash::check( $password, $passenger->password ) ) {
+			$response['response'] = new \stdClass();
 			$response['response']->password = "Password don't match";
-			$response['success']            = false;
+			$response['success'] = false;
 		} else {
 			$response['token'] = Passenger::where( 'username', $username )->first()->token;
 		}
@@ -106,9 +106,9 @@ class APIUserController extends Controller {
 			'email' => 'required|exists:passengers',
 		] );
 		if ( $validator->fails() ) {
-			$errors               = $validator->errors();
+			$errors = $validator->errors();
 			$response['response'] = new \stdClass();
-			if ( ! empty( $errors->first( 'email' ) ) ) {
+			if (!empty( $errors->first('email'))) {
 				$response['response']->email = $errors->first( 'email' );
 			}
 			$response['success'] = false;
@@ -117,7 +117,7 @@ class APIUserController extends Controller {
 		$npass = str_random( 6 );
 		Passenger::where( 'email', $request->input( 'email' ) )->update( [ 'password' => bcrypt( $npass ) ] );
 		$data = "Your New Password is " . $npass;
-		mail( $request->input( 'email' ), 'Password Reset', $data );
+		mail( $request->input('email'), 'Password Reset', $data );
 
 		return response()->json( [ 'message' => 'Email sent to you with a new password', 'success' => 'true' ] );
 
@@ -142,26 +142,25 @@ class APIUserController extends Controller {
 		] );
 		$response  = array( 'response' => new \stdClass(), 'success' => true );
 		if ( $validator->fails() ) {
-			$errors               = $validator->errors();
+			$errors = $validator->errors();
 
-			if ( ! empty( $errors->first( 'email' ) ) ) {
-				$response['response']->email = $errors->first( 'email' );
+			if (!empty( $errors->first('email'))) {
+				$response['response']->email = $errors->first('email');
 			}
-			if ( ! empty( $errors->first( 'password' ) ) ) {
-				$response['response']->password = $errors->first( 'password' );
+			if (!empty( $errors->first('password'))) {
+				$response['response']->password = $errors->first('password');
 			}
-			if ( ! empty( $errors->first( 'username' ) ) ) {
-				$response['response']->username = $errors->first( 'username' );
+			if (!empty( $errors->first('username'))) {
+				$response['response']->username = $errors->first('username');
 			}
 			$response['success']  = false;
 		} else {
-			$passenger           = Passenger::where( 'token', $request->input( 'token' ) )->first();
+			$passenger = Passenger::where( 'token', $request->input('token') )->first();
 			$passenger->username = $username;
 			$passenger->email    = $email;
 			$passenger->password = bcrypt( $password );
 			$passenger->update();
 		}
-
 		return response()->json( $response );
 	}
 

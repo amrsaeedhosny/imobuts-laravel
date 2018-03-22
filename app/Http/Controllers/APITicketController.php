@@ -17,12 +17,10 @@ class APITicketController extends Controller {
 	 * @return array
 	 */
 	public function getTickets( Request $request ) {
-		$passenger                     = Passenger::where( 'token', $request->input( 'token' ) )->with( 'tickets' )->first();   // id here means user id
-		$response                      = array( 'response' => new \stdClass(), 'success' => true );
+		$passenger = Passenger::where( 'token', $request->input('token' ))->with( 'tickets' )->first();   // id here means user id
+		$response  = array( 'response' => new \stdClass(), 'success' => true );
 		$response['response']->tickets = $passenger->tickets;
-
 		return response()->json( $response );
-
 	}
 
 	/**
