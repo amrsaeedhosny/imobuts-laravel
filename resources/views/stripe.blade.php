@@ -16,5 +16,14 @@
             data-zip-code="true">
     </script>
 </form>
+<script>
+    (function () {
+        document.getElementsByClassName('stripe-button-el')[0].click();
+        document.getElementsByClassName('stripe-button-el')[0].style.display = "none";
+        // your page initialization code here
+        // the DOM will be available here
+
+    })();
+</script>
 </body>
 </html>
