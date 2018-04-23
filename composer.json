@@ -11,6 +11,7 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "reliese/laravel": "^0.0.13",
+        "stripe/stripe-php": "^6.6",
         "tymon/jwt-auth": "dev-develop"
     },
     "require-dev": {

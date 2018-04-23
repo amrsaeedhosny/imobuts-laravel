@@ -11,7 +11,6 @@
 |
 */
 
-use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix'=>'/'],function() {
 	Auth::routes();
@@ -32,9 +31,11 @@ Route::group(['prefix'=>'/api'],function(){
 		Route::get( 'tickets/{id}', 'APITicketController@getTicketDetails' );
 	} );
 
-
 });
 
 Route::get('docs', function(){
 	return View::make('docs.api.index');
 });
+
+Route::get( 'stripe', 'StripeController@getView' );
+Route::post( 'stripe', 'StripeController@charge' )->name( 'charge' );
