@@ -31,14 +31,14 @@ class StripeController extends Controller {
 				'amount'   => $request->input( 'amount' ),
 				'currency' => 'egp'
 			) );
-			$passenger          = Passenger::where( 'token', $request->input( 'token' ) )->first();
-			$passenger->balance += $request->input( 'amount' );
+			$passenger          = Passenger::where( 'token', $request->input( 'user_token' ) )->first();
+			$passenger->balance += $request->input( 'amount' ) / 100.0;
 			$passenger->update();
 			$token               = new Token();
 			$ticket              = new Ticket();
 			$ticket->date        = time();
 			$ticket->passengerID = $passenger->id;
-			$ticket->price       = $request->input( 'amount' );
+			$ticket->price       = $request->input( 'amount' ) / 100.0;
 			$ticket->code        = $token->Unique( 'tickets', 'code', 10 );
 			$ticket->save();
 
