@@ -29,7 +29,9 @@ Route::group(['prefix'=>'/api'],function(){
 		Route::get( 'getProfile', 'APIUserController@getProfile' );
 
 		Route::get( 'tickets', 'APITicketController@getTickets' );
-		Route::get( 'tickets/{id}', 'APITicketController@getTicketDetails' );
+		Route::get( 'ticketDetails', 'APITicketController@getTicketDetails' );
+        
+        Route::post('issueTicket' ,'APIPaymentController@cutTicket');
 	} );
 
 
