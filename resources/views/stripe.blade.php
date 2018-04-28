@@ -2,7 +2,7 @@
 <head>
 
 </head>
-<body>
+<body style="background: black">
 <form action="{{route('charge')}}" method="POST">
     {{csrf_field()}}
     <script
