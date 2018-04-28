@@ -30,6 +30,8 @@ Route::group(['prefix'=>'/api'],function(){
 
 		Route::get( 'tickets', 'APITicketController@getTickets' );
 		Route::get( 'tickets/{id}', 'APITicketController@getTicketDetails' );
+        
+        Route::post('issueTicket' ,'APIPaymentController@cutTicket');
 	} );
 
 
