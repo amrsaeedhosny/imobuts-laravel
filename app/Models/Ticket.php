@@ -13,8 +13,9 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * Class Ticket
  * 
  * @property int $id
- * @property float $value
+ * @property float $price
  * @property int $passengerID
+ * @property string $code
  * @property \Carbon\Carbon $date
  * 
  * @property \App\Models\Passenger $passenger
@@ -27,7 +28,7 @@ class Ticket extends Eloquent
 	public $timestamps = false;
 
 	protected $casts = [
-		'value' => 'float',
+		'price'       => 'float',
 		'passengerID' => 'int'
 	];
 
@@ -36,10 +37,13 @@ class Ticket extends Eloquent
 	];
 
 	protected $fillable = [
-		'value',
+		'price',
 		'passengerID',
-		'date'
+		'date',
+		'code'
 	];
+
+	protected $hidden = [ 'passengerID' ];
 
 	public function passenger()
 	{
