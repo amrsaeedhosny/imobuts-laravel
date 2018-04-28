@@ -27,7 +27,7 @@ class Ticket extends Eloquent
 	public $timestamps = false;
 
 	protected $casts = [
-		'value' => 'float',
+		'price' => 'float',
 		'passengerID' => 'int'
 	];
 
@@ -36,7 +36,7 @@ class Ticket extends Eloquent
 	];
 
 	protected $fillable = [
-		'value',
+		'price',
 		'passengerID',
 		'date'
 	];
