@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Passenger;
 use App\Models\Ticket;
-use Carbon\Carbon;
 use Dirape\Token\Token;
 use Illuminate\Http\Request;
 use Stripe\Charge;
@@ -37,7 +36,7 @@ class StripeController extends Controller {
 			$passenger->update();
 			$token               = new Token();
 			$ticket              = new Ticket();
-			$ticket->date        = Carbon::now();
+			$ticket->date        = time();
 			$ticket->passengerID = $passenger->id;
 			$ticket->price       = $request->input( 'amount' );
 			$ticket->code        = $token->Unique( 'tickets', 'code', 10 );
