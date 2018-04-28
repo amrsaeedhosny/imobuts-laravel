@@ -135,11 +135,30 @@ class APIUserController extends Controller {
 		$email     = $request->input( 'email' );
 		$password  = $request->input( 'password' );
 		$username  = $request->input( 'username' );
-		$validator = Validator::make( $request->toArray(), [
-			'username' => 'required|unique:passengers',
-			'password' => 'required',
-			'email'    => 'required|unique:passengers'
-		] );
+        $passenger = Passenger::where( 'token', $request->input('token') )->first();
+        if($passenger->email  != $email && $passenger->username != $username){
+             $validator = Validator::make( $request->toArray(), [
+            'email'    => 'unique:passengers',
+            'username' => 'unique:passengers'
+            ]);
+        }
+        
+        else if($passenger->email != $email){
+             $validator = Validator::make( $request->toArray(), [
+			'email'    => 'unique:passengers'
+		 ]);   
+        }
+        
+        else if($passenger->username != $username){
+            $validator = Validator::make( $request->toArray(), [
+			'username'    => 'unique:passengers'
+		 ]);   
+        }
+        
+        else{
+             $validator = Validator::make( $request->toArray(), []);
+        }
+        
 		$response  = array( 'response' => new \stdClass(), 'success' => true );
 		if ( $validator->fails() ) {
 			$errors = $validator->errors();
@@ -155,12 +174,11 @@ class APIUserController extends Controller {
 			}
 			$response['success']  = false;
 		} else {
-			$passenger = Passenger::where( 'token', $request->input('token') )->first();
-			$passenger->username = $username;
-			$passenger->email    = $email;
-			$passenger->password = bcrypt( $password );
+            $passenger->email = $email;
+            $passenger->username = $username; 
+            $passenger->password = bcrypt( $password );
 			$passenger->update();
-		}
+        }
 		return response()->json( $response );
 	}
 
