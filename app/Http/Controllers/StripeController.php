@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Passenger;
-use App\Models\Ticket;
-use Dirape\Token\Token;
 use Illuminate\Http\Request;
 use Stripe\Charge;
 use Stripe\Customer;
@@ -34,13 +32,13 @@ class StripeController extends Controller {
 			$passenger          = Passenger::where( 'token', $request->input( 'user_token' ) )->first();
 			$passenger->balance += $request->input( 'amount' ) / 100.0;
 			$passenger->update();
-			$token               = new Token();
-			$ticket              = new Ticket();
-			$ticket->date        = time();
-			$ticket->passengerID = $passenger->id;
-			$ticket->price       = $request->input( 'amount' ) / 100.0;
-			$ticket->code        = $token->Unique( 'tickets', 'code', 10 );
-			$ticket->save();
+//			$token               = new Token();
+//			$ticket              = new Ticket();
+//			$ticket->date        = time();
+//			$ticket->passengerID = $passenger->id;
+//			$ticket->price       = $request->input( 'amount' ) / 100.0;
+//			$ticket->code        = $token->Unique( 'tickets', 'code', 10 );
+//			$ticket->save();
 
 			return 'Charge successful, you get the course!';
 		} catch ( \Exception $ex ) {
