@@ -40,7 +40,8 @@ class Ticket extends Eloquent
 		'price',
 		'passengerID',
 		'date',
-		'code'
+		'code',
+		'viewed'
 	];
 
 	protected $hidden = [ 'passengerID' ];
