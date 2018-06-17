@@ -39,7 +39,7 @@ class Ticket extends Eloquent
 
 	protected $fillable = [
 		'price',
-		'passengerID',
+//		'passengerID',
 		'date',
 		'code',
 		'viewed'
