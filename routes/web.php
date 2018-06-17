@@ -13,12 +13,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group(['prefix'=>'/'],function() {
-	Auth::routes();
-	Route::get( '/', function () {
-		return view( 'welcome' );
-	} );
-});
+Route::get( '/', function () {
+	return redirect( '/admin' );
+} );
 
 Route::group(['prefix'=>'/api'],function(){
 	Route::post('signUp','APIUserController@signUp');
