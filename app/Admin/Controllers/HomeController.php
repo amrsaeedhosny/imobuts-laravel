@@ -14,7 +14,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-    	dd(DB::table('admin_role_users')->get());
         return Admin::content(function (Content $content) {
 
             $content->header('Dashboard');
