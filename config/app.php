@@ -178,7 +178,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 	    Reliese\Coders\CodersServiceProvider::class,
 	    //F2m2\Apidocs\ApidocsServiceProvider::class,
-	    Dirape\Token\TokenServiceProvider::class
+	    Dirape\Token\TokenServiceProvider::class,
+	    Barryvdh\Cors\ServiceProvider::class,
 
     ],
 
