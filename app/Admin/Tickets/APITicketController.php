@@ -34,14 +34,12 @@ class APITicketController extends Controller {
 	 * @return array
 	 */
 	public function getTicketDetails( Request $request ) {
-		$ticket = Ticket::find( $request->input( 'id' ) );                                // id here means ticket id
-
 		$validator = Validator::make( $request->toArray(), [
-			'id' => 'exists:tickets'
+			'id' => 'required|exists:tickets'
 		] );
 
 		$response = array( 'response' => new \stdClass(), 'success' => true );
-		
+
 		if ( $validator->fails() ) {
 			$errors = $validator->errors();
 
@@ -51,6 +49,7 @@ class APITicketController extends Controller {
 			$response['success'] = false;
 		}
 		else {
+			$ticket = Ticket::find( $request->input( 'id' ) );                                // id here means ticket id
 			$ticket->viewed = 1;
 			$ticket->update();
 			$response['response'] = $ticket;
