@@ -56,4 +56,8 @@ class Ticket extends Eloquent
 	{
 		return $this->hasMany(Payment::class, 'ticketID');
 	}
+
+	public function getViewedAttribute($value){
+		return $value == 0 ? false : true;
+	}
 }
