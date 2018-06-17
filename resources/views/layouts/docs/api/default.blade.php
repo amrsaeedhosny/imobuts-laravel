@@ -419,6 +419,14 @@
                                     <input type="text" class="parameter-value-text" name="token">
                                 </div>
                               </li>
+                             <li>
+                                <div class="parameter-name">ticket_id</div>
+                                <div class="parameter-type">integer</div>
+                                <div class="parameter-desc">the id of the ticket</div>
+                                <div class="parameter-value">
+                                    <input type="text" class="parameter-value-text" name="ticket_id">
+                                </div>
+                              </li>
 
                             </ul>
                           </div>
