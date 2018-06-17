@@ -30,7 +30,7 @@ class PaymentMiddleware
 			    $response['response']->token = $errors->first( 'token' );
 		    }
 		    if ( ! empty( $errors->first( 'amount' ) ) ) {
-			    $response['response']->email = $errors->first( 'amount' );
+			    $response['response']->amount = $errors->first( 'amount' );
 		    }
 		    return response()->json($response);
 	    }
