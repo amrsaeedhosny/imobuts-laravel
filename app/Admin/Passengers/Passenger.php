@@ -5,8 +5,10 @@
  * Date: Tue, 06 Feb 2018 18:03:05 +0000.
  */
 
-namespace App\Models;
+namespace App\Admin\Passengers;
 
+use App\Admin\Payment\Payment;
+use App\Admin\Tickets\Ticket;
 use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
@@ -52,11 +54,11 @@ class Passenger extends Eloquent
 
 	public function payments()
 	{
-		return $this->hasMany(\App\Models\Payment::class, 'passengerID');
+		return $this->hasMany(Payment::class, 'passengerID');
 	}
 
 	public function tickets()
 	{
-		return $this->hasMany(\App\Models\Ticket::class, 'passengerID');
+		return $this->hasMany(Ticket::class, 'passengerID');
 	}
 }

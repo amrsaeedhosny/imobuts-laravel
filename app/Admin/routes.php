@@ -10,6 +10,11 @@ Route::group([
     'middleware'    => config('admin.route.middleware'),
 ], function (Router $router) {
 
-    $router->get('/', 'HomeController@index');
+	$router->group(['namespace'=>'Index'],function (Router $router){
+		$router->get('/', 'HomeController@index');
+	});
 
+	$router->resources([
+
+		]);
 });

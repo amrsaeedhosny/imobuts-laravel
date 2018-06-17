@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Passenger;
+use App\Admin\Passengers\Passenger;
 use Dirape\Token\Token;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
  * @resource Passenger API Controller
  *
  */
-class APIUserController extends Controller {
+class APIPassengerController extends Controller {
 	/**
 	 * @param  string $email The email of the user
 	 * @param  string $username The username of the user

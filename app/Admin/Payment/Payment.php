@@ -5,7 +5,7 @@
  * Date: Tue, 06 Feb 2018 18:03:05 +0000.
  */
 
-namespace App\Models;
+namespace App\Admin\Payment;
 
 use Reliese\Database\Eloquent\Model as Eloquent;
 
@@ -17,8 +17,8 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property int $passengerID
  * @property int $ticketID
  * 
- * @property \App\Models\Passenger $passenger
- * @property \App\Models\Ticket $ticket
+ * @property \App\Admin\Passengers\Passenger $passenger
+ * @property \App\Admin\Tickets\Ticket $ticket
  *
  * @package App\Models
  */
@@ -38,11 +38,11 @@ class Payment extends Eloquent
 
 	public function passenger()
 	{
-		return $this->belongsTo(\App\Models\Passenger::class, 'passengerID');
+		return $this->belongsTo(\App\Admin\Passengers\Passenger::class, 'passengerID');
 	}
 
 	public function ticket()
 	{
-		return $this->belongsTo(\App\Models\Ticket::class, 'ticketID');
+		return $this->belongsTo(\App\Admin\Tickets\Ticket::class, 'ticketID');
 	}
 }

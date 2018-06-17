@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Passenger;
-use App\Models\Ticket;
+use App\Admin\Passengers\Passenger;
+use App\Admin\Tickets\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 

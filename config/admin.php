@@ -20,13 +20,13 @@ return [
     /*
      * Route configuration.
      */
-    'route' => [
+    'route'     => [
 
-        'prefix' => 'admin',
+	    'prefix' => 'admin',
 
-        'namespace' => 'App\\Admin\\Controllers',
+	    'namespace' => 'App\\Admin',
 
-        'middleware' => ['web', 'admin'],
+	    'middleware' => ['web', 'admin'],
     ],
 
     /*

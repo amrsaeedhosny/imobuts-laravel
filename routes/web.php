@@ -17,23 +17,6 @@ Route::get( '/', function () {
 	return redirect( '/admin' );
 } );
 
-Route::group(['prefix'=>'/api'],function(){
-	Route::post('signUp','APIUserController@signUp');
-	Route::post( 'signIn', 'APIUserController@signIn' );
-	Route::get( 'resetPassword', 'APIUserController@resetPassword' );
-	Route::group( [ 'middleware' => \App\Http\Middleware\PassengerLoggedIn::class ], function () {
-		Route::post( 'updateProfile', 'APIUserController@updateProfile' );
-		Route::get( 'getProfile', 'APIUserController@getProfile' );
-
-		Route::get( 'tickets', 'APITicketController@getTickets' );
-		Route::get( 'ticketDetails', 'APITicketController@getTicketDetails' );
-        
-        Route::post('issueTicket' ,'APIPaymentController@cutTicket');
-	} );
-
-
-});
-
 Route::get('docs', function(){
 	return View::make('docs.api.index');
 });

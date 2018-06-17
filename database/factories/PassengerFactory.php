@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Passenger;
+use App\Admin\Passengers\Passenger;
 use Faker\Generator as Faker;
 
 $factory->define( Passenger::class, function ( Faker $faker ) {

@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define( \App\Models\Ticket::class, function ( Faker $faker ) {
+$factory->define( \App\Admin\Tickets\Ticket::class, function ( Faker $faker ) {
 	return [
 		//
 		'price'       => $faker->randomFloat( 1, 1, 100 ),

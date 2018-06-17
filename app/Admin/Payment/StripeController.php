@@ -1,6 +1,6 @@
 <?php
 namespace App\Http\Controllers;
-use App\Models\Passenger;
+use App\Admin\Passengers\Passenger;
 use Illuminate\Http\Request;
 use Stripe\Charge;
 use Stripe\Customer;
