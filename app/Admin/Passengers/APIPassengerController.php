@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Admin\Passengers;
 
 use App\Admin\Passengers\Passenger;
+use App\Http\Controllers\Controller;
 use Dirape\Token\Token;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;

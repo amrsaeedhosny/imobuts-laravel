@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Admin\Tickets;
 
 use App\Admin\Passengers\Passenger;
 use App\Admin\Tickets\Ticket;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
