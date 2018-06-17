@@ -40,6 +40,8 @@ Route::group(['prefix'=>'/api'],function(){
 Route::get('docs', function(){
 	return View::make('docs.api.index');
 });
+Route::group(['middleware'=>\App\Http\Middleware\PaymentMiddleware::class],function (){
+	Route::get( 'stripe', 'StripeController@getView' );
+	Route::post( 'stripe', 'StripeController@charge' )->name( 'charge' );
+});
 
-Route::get( 'stripe', 'StripeController@getView' );
-Route::post( 'stripe', 'StripeController@charge' )->name( 'charge' );
