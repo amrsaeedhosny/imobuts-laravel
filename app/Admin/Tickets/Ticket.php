@@ -7,6 +7,7 @@
 
 namespace App\Admin\Tickets;
 
+use App\Admin\Payment\Payment;
 use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
@@ -53,6 +54,6 @@ class Ticket extends Eloquent
 
 	public function payments()
 	{
-		return $this->hasMany(\App\Models\Payment::class, 'ticketID');
+		return $this->hasMany(Payment::class, 'ticketID');
 	}
 }

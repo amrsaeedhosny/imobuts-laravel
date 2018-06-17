@@ -2,6 +2,7 @@
 
 namespace App\Admin\Tickets;
 
+use App\Admin\Passengers\Passenger;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -75,9 +76,12 @@ class TicketController extends Controller
 		return Admin::grid(Ticket::class, function (Grid $grid) {
 
 			$grid->id('ID')->sortable();
-
-			$grid->created_at();
-			$grid->updated_at();
+			$grid->code('Code');
+			$grid->price('Price');
+			$grid->passenger('Passenger')->display(function ($passenger){
+				return "<span class='label label-success'>{$passenger['username']}</span>";
+			});
+			$grid->date('Date');
 		});
 	}
 
@@ -91,7 +95,10 @@ class TicketController extends Controller
 		return Admin::form(Ticket::class, function (Form $form) {
 
 			$form->display('id', 'ID');
-
+			$form->text('code','Code');
+			$form->number('price','Price');
+			$form->select( 'passengerID', 'Passenger' )->options( Passenger::pluck( 'name', 'id' )->all() );
+			$form->datetime('date','Date');
 			$form->display('created_at', 'Created At');
 			$form->display('updated_at', 'Updated At');
 		});
