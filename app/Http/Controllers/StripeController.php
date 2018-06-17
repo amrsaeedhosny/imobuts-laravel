@@ -2,9 +2,10 @@
 namespace App\Http\Controllers;
 use App\Models\Passenger;
 use Illuminate\Http\Request;
-use Stripe\Charge;
-use Stripe\Customer;
 use Stripe\Stripe;
+use Stripe\Customer;
+use Stripe\Charge;
+
 class StripeController extends Controller {
 	//
 	public function getView() {

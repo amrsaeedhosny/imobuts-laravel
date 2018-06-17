@@ -11,6 +11,7 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "reliese/laravel": "^0.0.13",
+        "stripe/stripe-php": "^6.8",
         "tymon/jwt-auth": "dev-develop"
     },
     "require-dev": {
@@ -19,7 +20,6 @@
         "mockery/mockery": "~1.0",
         "phpunit/phpunit": "~6.0",
         "f2m2/apidocs": "dev-master"
-
     },
     "autoload": {
         "classmap": [
