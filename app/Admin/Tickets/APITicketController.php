@@ -29,9 +29,8 @@ class APITicketController extends Controller {
 
 	/**
 	 * @param  string $token The unique token of the user
-	 * @param integer $id the id of the ticket
 	 *
-	 * @return array
+	 * @return object
 	 */
 	public function getTicketDetails( Request $request ) {
 		$validator = Validator::make( $request->toArray(), [
