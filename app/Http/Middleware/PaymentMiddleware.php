@@ -20,6 +20,8 @@ class PaymentMiddleware
 		    'token' => 'required|exists:passengers',
 		    'amount' => 'required',
 	    ] );
+	    $response  = array( 'response' => new \stdClass(), 'success' => true);
+
 	    if ( $validator->fails() ) {
 		    $errors              = $validator->errors();
 		    $response['success'] = false;
