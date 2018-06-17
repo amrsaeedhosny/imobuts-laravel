@@ -2,9 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\Passenger;
 use Closure;
-use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Validator;
 
 class PaymentMiddleware
 {
