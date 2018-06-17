@@ -9,7 +9,7 @@ $factory->define( Passenger::class, function ( Faker $faker ) {
 		'balance'  => $faker->randomNumber(),
 		'username' => $faker->userName,
 		'email'    => $faker->email,
-		'password' => $faker->password,
+		'password' => bcrypt($faker->password),
 		'token'    => str_random( 6 )
 	];
 } );
