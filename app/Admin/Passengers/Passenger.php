@@ -38,7 +38,7 @@ class Passenger extends Eloquent
 
 	protected $hidden = [
 		'password',
-		'token',
+//		'token',
 //		'id',
 		'fullname'
 	];
@@ -49,7 +49,8 @@ class Passenger extends Eloquent
 		'email',
 		'address',
 		'balance',
-		'password'
+		'password',
+		'token'
 	];
 
 	public function payments()
