@@ -29,7 +29,7 @@ class APITicketController extends Controller {
 
 	/**
 	 * @param  string $token The unique token of the user
-	 * @param integer $id the id of the ticket
+	 * @param  integer $id the id of the ticket
 	 *
 	 * @return object
 	 */
