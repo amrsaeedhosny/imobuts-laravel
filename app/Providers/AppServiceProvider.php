@@ -15,7 +15,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-	    dd(DB::table('admin_role_users')->get());
     }
 
     /**
