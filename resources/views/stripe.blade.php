@@ -13,7 +13,9 @@
             data-description="Example charge"
             data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
             data-locale="auto"
-            data-zip-code="true">
+            data-zip-code="false"
+            data-email="false"
+    >
     </script>
     <input type="hidden" name="amount" value="{{request('amount') * 100.0}}">
     <input type="hidden" name="token" value="{{request('token')}}">
