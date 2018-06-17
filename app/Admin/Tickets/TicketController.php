@@ -97,7 +97,7 @@ class TicketController extends Controller
 			$form->display('id', 'ID');
 			$form->text('code','Code');
 			$form->number('price','Price');
-			$form->select( 'passengerID', 'Passenger' )->options( Passenger::pluck( 'name', 'id' )->all() );
+			$form->select( 'passengerID', 'Passenger' )->options( Passenger::pluck( 'username', 'id' )->all() );
 			$form->datetime('date','Date');
 			$form->display('created_at', 'Created At');
 			$form->display('updated_at', 'Updated At');
