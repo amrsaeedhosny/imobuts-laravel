@@ -75,7 +75,10 @@ class PassengerController extends Controller
 		return Admin::grid(Passenger::class, function (Grid $grid) {
 
 			$grid->id('ID')->sortable();
-
+			$grid->username('User Name');
+			$grid->email('Email');
+			$grid->balance('Balance');
+			$grid->token('Token');
 			$grid->created_at();
 			$grid->updated_at();
 		});
