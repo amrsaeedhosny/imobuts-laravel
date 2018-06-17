@@ -8,11 +8,13 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Column;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Layout\Row;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
     public function index()
     {
+    	dd(DB::table('admin_role_users')->get());
         return Admin::content(function (Content $content) {
 
             $content->header('Dashboard');
