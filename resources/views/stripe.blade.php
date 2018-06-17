@@ -16,7 +16,7 @@
             data-zip-code="true">
     </script>
     <input type="hidden" name="amount" value="{{request('amount') * 100.0}}">
-    <input type="hidden" name="user_token" value="{{request('token')}}">
+    <input type="hidden" name="token" value="{{request('token')}}">
 </form>
 <script>
     (function () {

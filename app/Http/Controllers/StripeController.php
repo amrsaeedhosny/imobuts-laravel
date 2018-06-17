@@ -22,7 +22,7 @@ class StripeController extends Controller {
 				'amount'   => $request->input( 'amount' ),
 				'currency' => 'egp'
 			) );
-			$passenger          = Passenger::where( 'token', $request->input( 'user_token' ) )->first();
+			$passenger          = Passenger::where( 'token', $request->input( 'token' ) )->first();
 			$passenger->balance += $request->input( 'amount' ) / 100.0;
 			$passenger->update();
 			return 'Charge successful, you get the course!';
