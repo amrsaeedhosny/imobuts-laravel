@@ -5,17 +5,17 @@ return [
     /*
      * Laravel-admin name.
      */
-    'name' => 'Imobuts',
+    'name' => 'IMOBUTS',
 
     /*
      * Logo in admin panel header.
      */
-    'logo' => '<b>IMO</b> buts',
+    'logo' => '<b>IMO</b>BUTS',
 
     /*
      * Mini-logo in admin panel header.
      */
-    'logo-mini' => '<b>Imo</b>',
+    'logo-mini' => '<b>IMO</b>',
 
     /*
      * Route configuration.
@@ -37,12 +37,12 @@ return [
     /*
      * Laravel-admin html title.
      */
-    'title' => 'Admin',
+    'title' => 'IMOBUTS',
 
     /*
      * Use `https`.
      */
-    'secure' => false,
+    'secure' => true,
 
     /*
      * Laravel-admin auth setting.
