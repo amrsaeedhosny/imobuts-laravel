@@ -15,6 +15,8 @@ Route::group([
 	});
 
 	$router->resources([
+		'passengers'         => 'Passengers\PassengerController',
+		'tickets'         => 'Tickets\TicketController',
 
 		]);
 });

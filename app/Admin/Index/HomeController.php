@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Admin\Controllers;
+namespace App\Admin\Index;
 
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\Dashboard;
