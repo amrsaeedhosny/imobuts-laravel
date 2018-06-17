@@ -177,7 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 	    Reliese\Coders\CodersServiceProvider::class,
-	    F2m2\Apidocs\ApidocsServiceProvider::class,
+	    //F2m2\Apidocs\ApidocsServiceProvider::class,
 	    Dirape\Token\TokenServiceProvider::class
 
     ],
