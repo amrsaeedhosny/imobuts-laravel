@@ -5,22 +5,22 @@ return [
     /*
      * Laravel-admin name.
      */
-    'name' => 'IMOBUTS',
+	'name' => 'IMOBUTS',
 
     /*
      * Logo in admin panel header.
      */
-    'logo' => '<b>IMO</b>BUTS',
+	'logo' => '<b>IMO</b>BUTS',
 
     /*
      * Mini-logo in admin panel header.
      */
-    'logo-mini' => '<b>IMO</b>',
+	'logo-mini' => '<b>IMO</b>',
 
     /*
      * Route configuration.
      */
-    'route'     => [
+	'route'     => [
 
 	    'prefix' => 'admin',
 
@@ -32,22 +32,22 @@ return [
     /*
      * Laravel-admin install directory.
      */
-    'directory' => app_path('Admin'),
+	'directory' => app_path('Admin'),
 
     /*
      * Laravel-admin html title.
      */
-    'title' => 'IMOBUTS',
+	'title' => 'IMOBUTS',
 
     /*
      * Use `https`.
      */
-    'secure' => true,
+	'secure' => true,
 
     /*
      * Laravel-admin auth setting.
      */
-    'auth' => [
+	'auth' => [
         'guards' => [
             'admin' => [
                 'driver'   => 'session',
@@ -66,7 +66,7 @@ return [
     /*
      * Laravel-admin upload setting.
      */
-    'upload' => [
+	'upload' => [
 
         'disk' => 'admin',
 
@@ -79,7 +79,7 @@ return [
     /*
      * Laravel-admin database setting.
      */
-    'database' => [
+	'database'               => [
 
         // Database connection for following tables.
         'connection' => '',
@@ -111,7 +111,7 @@ return [
     /*
      * By setting this option to open or close operation log in laravel-admin.
      */
-    'operation_log' => [
+	'operation_log'          => [
 
         'enable' => true,
 
@@ -129,7 +129,7 @@ return [
     /*
      * @see https://adminlte.io/docs/2.4/layout
      */
-    'skin' => 'skin-blue-light',
+	'skin'                   => 'skin-red-light',
 
     /*
     |---------------------------------------------------------|
@@ -140,22 +140,22 @@ return [
     |               | sidebar-mini                            |
     |---------------------------------------------------------|
      */
-    'layout' => ['sidebar-mini', 'sidebar-collapse'],
+	'layout'                 => [ 'sidebar-mini' ],
 
     /*
      * Background image in login page
      */
-    'login_background_image' => '',
+	'login_background_image' => '',
 
     /*
      * Version displayed in footer.
      */
-    'version' => '0.1',
+	'version'                => '0.1',
 
     /*
      * Settings for extensions.
      */
-    'extensions' => [
+	'extensions'             => [
 
     ],
 ];
