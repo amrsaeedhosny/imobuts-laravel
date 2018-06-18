@@ -460,7 +460,40 @@
                         </div> -->
                         <form class="api-explorer-form" uri="api/issueTicket" type="POST">
                           <div class="endpoint-paramenters">
-                            
+                              <h4>Parameters</h4>
+                              <ul>
+                                  <li class="parameter-header">
+                                      <div class="parameter-name">PARAMETER</div>
+                                      <div class="parameter-type">TYPE</div>
+                                      <div class="parameter-desc">DESCRIPTION</div>
+                                      <div class="parameter-value">VALUE</div>
+                                  </li>
+                                  <li>
+                                      <div class="parameter-name">id</div>
+                                      <div class="parameter-type">string</div>
+                                      <div class="parameter-desc">The id of the user</div>
+                                      <div class="parameter-value">
+                                          <input type="text" class="parameter-value-text" name="id">
+                                      </div>
+                                  </li>
+                                  <li>
+                                      <div class="parameter-name">value</div>
+                                      <div class="parameter-type">float</div>
+                                      <div class="parameter-desc">the ticket cost</div>
+                                      <div class="parameter-value">
+                                          <input type="text" class="parameter-value-text" name="value">
+                                      </div>
+                                  </li>
+                                  <li>
+                                      <div class="parameter-name">balance</div>
+                                      <div class="parameter-type">float</div>
+                                      <div class="parameter-desc">the user current balance</div>
+                                      <div class="parameter-value">
+                                          <input type="text" class="parameter-value-text" name="balance">
+                                      </div>
+                                  </li>
+
+                              </ul>
                           </div>
                            <div class="generate-response" >
                               <!-- <input type="hidden" name="_method" value="POST"> -->
