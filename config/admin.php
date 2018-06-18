@@ -145,7 +145,7 @@ return [
     /*
      * Background image in login page
      */
-	'login_background_image' => '',
+	'login_background_image' => 'https://www.boardoftrade.com/files/events/2017/transportation/transportation-summit-2017-header.jpg',
 
     /*
      * Version displayed in footer.
