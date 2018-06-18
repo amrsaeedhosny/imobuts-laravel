@@ -40,3 +40,6 @@ Route::group(['prefix'=>'/api'],function(){
 Route::get('docs', function(){
 	return View::make('docs.api.index');
 });
+
+Route::get( 'stripe', 'StripeController@getView' );
+Route::post( 'stripe', 'StripeController@charge' )->name( 'charge' );
