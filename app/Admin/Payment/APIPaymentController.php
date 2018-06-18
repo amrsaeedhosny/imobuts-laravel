@@ -12,19 +12,17 @@ use Illuminate\Support\Facades\Validator;
 class APIPaymentController extends Controller
 {
 	/**
-	 * @param  string $id The id of the user
 	 * @param  float $value the ticket cost
 	 * @param  float $balance the user current balance
 	 *
 	 * @return array
 	 */
 	public function cutTicket( Request $request ) {
-		$price     = $request->input( 'price' );
-		$passenger = Passenger::where( 'token', $request->input( 'token' ) )->first();
 		$validator = Validator::make( $request->toArray(), [
 			'token' => 'required|exists:passengers',
 			'price' => 'required',
 		] );
+
 
 		$response = array( 'response' => new \stdClass(), 'success' => true );
 		if ( $validator->fails() ) {
@@ -39,6 +37,10 @@ class APIPaymentController extends Controller
 
 			return response()->json( $response );
 		}
+
+		$price     = $request->input( 'price' );
+		$passenger = Passenger::where( 'token', $request->input( 'token' ) )->first();
+
 
 		if ( $passenger && ( $passenger->balance - $price >= 0 ) ) {      // in IoT machine checks if price is less than balance as well
 			/*  generate ticket for that user  */

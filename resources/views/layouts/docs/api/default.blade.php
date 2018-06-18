@@ -469,14 +469,6 @@
                                       <div class="parameter-value">VALUE</div>
                                   </li>
                                   <li>
-                                      <div class="parameter-name">id</div>
-                                      <div class="parameter-type">string</div>
-                                      <div class="parameter-desc">The id of the user</div>
-                                      <div class="parameter-value">
-                                          <input type="text" class="parameter-value-text" name="id">
-                                      </div>
-                                  </li>
-                                  <li>
                                       <div class="parameter-name">value</div>
                                       <div class="parameter-type">float</div>
                                       <div class="parameter-desc">the ticket cost</div>
