@@ -22,7 +22,7 @@ class APITicketController extends Controller {
 	public function getTickets( Request $request ) {
 		$passenger                     = Passenger::where( 'token', $request->input( 'token' ) )->with( [
 			'tickets' => function ( $query ) {
-				$query->orderBy( 'date', 'ASC' );
+				$query->orderBy( 'date', 'DESC' );
 			}
 		] )->first();   // id here means user id
 		$response                      = array( 'response' => new \stdClass(), 'success' => true );
