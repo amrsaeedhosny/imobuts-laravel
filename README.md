@@ -1,6 +1,6 @@
 # Intelligent Mobile Bus Ticketing System
 
-# Description
+### Description
 The issue of fast, safe, and non-distracting payment method is very
 paramount in any transportation, especially if it affects the safety of
 passengers.<br/>
@@ -40,10 +40,10 @@ used as back-end server framework representing the implementation of our
 services. PHP Laravel communicates with MySQL database to store and
 retrieve passengers’ data.
 
-# Admin
+### Dashboard
 [Imobuts Admin](http://imobuts.herokuapp.com/admin)
 * Username : admin
 * Password : admin
 
-# API DOCS
+### API DOCS
 [Imobuts DOCS](https://imobuts.herokuapp.com/docs)
