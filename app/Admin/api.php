@@ -19,6 +19,6 @@ Route::group( [ 'namespace' => 'Tickets', 'middleware' => \App\Http\Middleware\P
 
 
 Route::group( [ 'namespace' => 'Payment', 'middleware' => \App\Http\Middleware\PassengerLoggedIn::class ], function () {
-	Route::post( 'issueTicket', 'APIPaymentController@cutTicket' );
+	Route::post( 'issueTicket', 'APIPaymentController@buyTicket' );
 });
 

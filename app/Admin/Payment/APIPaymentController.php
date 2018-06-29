@@ -18,7 +18,7 @@ class APIPaymentController extends Controller
 	 *
 	 * @return array
 	 */
-	public function cutTicket( Request $request ) {
+	public function buyTicket( Request $request ) {
 		$validator = Validator::make( $request->toArray(), [
 			'token' => 'required|exists:passengers',
 			'price' => 'required',
