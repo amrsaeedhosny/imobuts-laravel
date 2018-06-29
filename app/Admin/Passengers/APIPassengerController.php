@@ -88,7 +88,7 @@ class APIPassengerController extends Controller {
 		$passenger = Passenger::where( [ 'username' => $username ] )->first();
 		if (!Hash::check( $password, $passenger->password ) ) {
 			$response['response'] = new \stdClass();
-			$response['response']->password = "Password don't match";
+			$response['response']->password = "Password doesn't match";
 			$response['success'] = false;
 		} else {
 			$response['token'] = Passenger::where( 'username', $username )->first()->token;
