@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,18 +9,27 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 use Illuminate\Support\Facades\Route;
+<<<<<<< Updated upstream
 
 Route::get( '/', function () {
 	return redirect( '/admin' );
 } );
 
+=======
+Route::get( '/', function () {
+	return redirect( '/admin' );
+} );
+>>>>>>> Stashed changes
 Route::get('docs', function(){
 	return View::make('docs.api.index');
 });
 Route::group(['middleware'=>\App\Http\Middleware\PaymentMiddleware::class],function (){
 	Route::get( 'stripe', 'StripeController@getView' );
 	Route::post( 'stripe', 'StripeController@charge' )->name( 'charge' );
+<<<<<<< Updated upstream
 });
 
+=======
+});
+>>>>>>> Stashed changes
