@@ -24,11 +24,14 @@ Route::get( '/', function () {
 Route::get('docs', function(){
 	return View::make('docs.api.index');
 });
+<<<<<<< HEAD
 Route::group(['middleware'=>\App\Http\Middleware\PaymentMiddleware::class],function (){
 	Route::get( 'stripe', 'StripeController@getView' );
 	Route::post( 'stripe', 'StripeController@charge' )->name( 'charge' );
 <<<<<<< Updated upstream
 });
+=======
+>>>>>>> 6ad19c51995a0da56ab1a4e2a7c7c5e6a1859857
 
 =======
 });

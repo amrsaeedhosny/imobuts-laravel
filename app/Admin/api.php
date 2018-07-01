@@ -9,29 +9,16 @@ Route::group(['namespace'=>'Passengers'],function (){
 	Route::group( [ 'middleware' => \App\Http\Middleware\PassengerLoggedIn::class ], function () {
 		Route::post( 'updateProfile', 'APIPassengerController@updateProfile' );
 		Route::get( 'getProfile', 'APIPassengerController@getProfile' );
-
-		Route::get( 'tickets', 'APITicketController@getTickets' );
-		Route::get( 'ticketDetails', 'APITicketController@getTicketDetails' );
-
-		Route::post('issueTicket' ,'APIPaymentController@cutTicket');
 	} );
 });
 
-Route::group(['namespace'=>'Tickets'],function (){
-	Route::group( [ 'middleware' => \App\Http\Middleware\PassengerLoggedIn::class ], function () {
-
-		Route::get( 'tickets', 'APITicketController@getTickets' );
-		Route::get( 'ticketDetails', 'APITicketController@getTicketDetails' );
-
-	} );
+Route::group( [ 'namespace' => 'Tickets', 'middleware' => \App\Http\Middleware\PassengerLoggedIn::class ], function () {
+	Route::get( 'tickets', 'APITicketController@getTickets' );
+	Route::get( 'ticketDetails', 'APITicketController@getTicketDetails' );
 });
 
 
-Route::group(['namespace'=>'Payment'],function (){
-	Route::group( [ 'middleware' => \App\Http\Middleware\PassengerLoggedIn::class ], function () {
-
-
-		Route::post('issueTicket' ,'APIPaymentController@cutTicket');
-	} );
+Route::group( [ 'namespace' => 'Payment', 'middleware' => \App\Http\Middleware\PassengerLoggedIn::class ], function () {
+	Route::post( 'issueTicket', 'APIPaymentController@buyTicket' );
 });
 

@@ -26,8 +26,7 @@ class TicketController extends Controller
 	{
 		return Admin::content(function (Content $content) {
 
-			$content->header('header');
-			$content->description('description');
+			$content->header( 'Tickets' );
 
 			$content->body($this->grid());
 		});
@@ -43,8 +42,7 @@ class TicketController extends Controller
 	{
 		return Admin::content(function (Content $content) use ($id) {
 
-			$content->header('header');
-			$content->description('description');
+			$content->header( 'Tickets' );
 
 			$content->body($this->form()->edit($id));
 		});
@@ -59,8 +57,8 @@ class TicketController extends Controller
 	{
 		return Admin::content(function (Content $content) {
 
-			$content->header('header');
-			$content->description('description');
+			$content->header( 'Tickets' );
+
 
 			$content->body($this->form());
 		});
