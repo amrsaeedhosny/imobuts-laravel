@@ -12,12 +12,11 @@ use Illuminate\Support\Facades\Validator;
 
 class APIPaymentController extends Controller
 {
-	/**
-	 * @param  float $value the ticket cost
-	 * @param  float $balance the user current balance
-	 *
-	 * @return array
-	 */
+        /**
+        * @param  float $price the ticket cost
+        * @param  string $token The unique token of the user
+        * @return array
+        */ 
 	public function buyTicket( Request $request ) {
 		$validator = Validator::make( $request->toArray(), [
 			'token' => 'required|exists:passengers',
