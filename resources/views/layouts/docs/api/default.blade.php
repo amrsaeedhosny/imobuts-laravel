@@ -51,7 +51,7 @@
                             <li>
                                 <a href="#APIPayment">APIPayment</a>
                                 <ul>
-									<li><a href="#APIPayment_cutTicket">cutTicket</a></li>
+                                    <li><a href="#APIPayment_buyTicket">buyTicket</a></li>
 </ul>
                             </li>
 
@@ -442,12 +442,12 @@
                         <h2>APIPayment</h2>
                         <p></p>
 
-                        
-                        <a href="#" class="waypoint" name="APIPayment_cutTicket"></a>
+
+                        <a href="#" class="waypoint" name="APIPayment_buyTicket"></a>
                         <div class="endpoint-header">
                             <ul>
                             <li><h2>POST</h2></li>
-                            <li><h3>cutTicket</h3></li>
+                                <li><h3>buyTicket</h3></li>
                             <li>api/issueTicket</li>
                           </ul>
                         </div>
@@ -469,19 +469,19 @@
                                       <div class="parameter-value">VALUE</div>
                                   </li>
                                   <li>
-                                      <div class="parameter-name">value</div>
+                                      <div class="parameter-name">price</div>
                                       <div class="parameter-type">float</div>
                                       <div class="parameter-desc">the ticket cost</div>
                                       <div class="parameter-value">
-                                          <input type="text" class="parameter-value-text" name="value">
+                                          <input type="text" class="parameter-value-text" name="price">
                                       </div>
                                   </li>
                                   <li>
-                                      <div class="parameter-name">balance</div>
-                                      <div class="parameter-type">float</div>
-                                      <div class="parameter-desc">the user current balance</div>
+                                      <div class="parameter-name">token</div>
+                                      <div class="parameter-type">string</div>
+                                      <div class="parameter-desc">The unique token of the user</div>
                                       <div class="parameter-value">
-                                          <input type="text" class="parameter-value-text" name="balance">
+                                          <input type="text" class="parameter-value-text" name="token">
                                       </div>
                                   </li>
 
