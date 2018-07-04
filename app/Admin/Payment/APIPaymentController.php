@@ -45,13 +45,13 @@ class APIPaymentController extends Controller
 			/*  generate ticket for that user  */
 			$ticket              = new Ticket();
 			$ticket->price       = $price;
-			$ticket->date        = Carbon::now();
+			$ticket->date        = Carbon::now()->toDateTimeString();
 			$date                = Carbon::now();
 			$ticket->passengerID = $passenger->id;
 			//$ticket->code = bcrypt(($passenger->token).($ticket->date));
 			$j = 0;
-			dd( $ticket );
-			for ( $i = 0; $i < 19; $i ++ ) {
+			dd( $date );
+			for ( $i = 0; $i < s; $i ++ ) {
 				if ( $date[ $i ] == ' ' || $date[ $i ] == '-' || $date[ $i ] == ':' ) {
 					$date[ $i ] = $passenger->token[ $j ];
 					$j ++;
