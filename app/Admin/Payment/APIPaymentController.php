@@ -41,7 +41,6 @@ class APIPaymentController extends Controller
 		$price     = $request->input( 'price' );
 		$passenger = Passenger::where( 'token', $request->input( 'token' ) )->first();
 
-		dd( $passenger );
 		if ( $passenger && ( $passenger->balance - $price >= 0 ) ) {      // in IoT machine checks if price is less than balance as well
 			/*  generate ticket for that user  */
 			$ticket              = new Ticket();
@@ -51,6 +50,7 @@ class APIPaymentController extends Controller
 			$ticket->passengerID = $passenger->id;
 			//$ticket->code = bcrypt(($passenger->token).($ticket->date));
 			$j = 0;
+			dd( $ticket );
 			for ( $i = 0; $i < 19; $i ++ ) {
 				if ( $date[ $i ] == ' ' || $date[ $i ] == '-' || $date[ $i ] == ':' ) {
 					$date[ $i ] = $passenger->token[ $j ];
