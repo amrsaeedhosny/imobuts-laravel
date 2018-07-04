@@ -64,7 +64,8 @@ class APIPaymentController extends Controller
 			$passenger->update();
 			$response['response']->newTicket = "new ticket has been issued";
 		} else {
-			$response['success'] = false;
+			$response['response']->newTicket = "not enough balance";
+			$response['success']             = false;
 		}
 
 		return response()->json( $response );
