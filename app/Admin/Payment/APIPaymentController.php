@@ -46,12 +46,11 @@ class APIPaymentController extends Controller
 			$ticket              = new Ticket();
 			$ticket->price       = $price;
 			$ticket->date        = Carbon::now()->toDateTimeString();
-			$date                = Carbon::now();
+			$date                = Carbon::now()->toDateTimeString();
 			$ticket->passengerID = $passenger->id;
 			//$ticket->code = bcrypt(($passenger->token).($ticket->date));
 			$j = 0;
-			dd( $date );
-			for ( $i = 0; $i < s; $i ++ ) {
+			for ( $i = 0; $i < 19; $i ++ ) {
 				if ( $date[ $i ] == ' ' || $date[ $i ] == '-' || $date[ $i ] == ':' ) {
 					$date[ $i ] = $passenger->token[ $j ];
 					$j ++;
