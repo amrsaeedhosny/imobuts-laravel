@@ -32,6 +32,7 @@ class APIPaymentController extends Controller
 		}
 		$price     = $request->input( 'price' );
 		$passenger = Passenger::where( 'token', $request->input( 'token' ) )->first();
+
 		if ( $passenger && ( $passenger->balance - $price >= 0 ) ) {      // in IoT machine checks if price is less than balance as well
 			/*  generate ticket for that user  */
 			$ticket              = new Ticket();
