@@ -40,7 +40,6 @@ class APIPaymentController extends Controller
 			$ticket->date        = Carbon::now()->toDateTimeString();
 			$date                = Carbon::now()->toDateTimeString();
 			$ticket->passengerID = $passenger->id;
-			//$ticket->code = bcrypt(($passenger->token).($ticket->date));
 			$j = 0;
 			for ( $i = 0; $i < 19; $i ++ ) {
 				if ( $date[ $i ] == ' ' || $date[ $i ] == '-' || $date[ $i ] == ':' ) {
@@ -48,7 +47,8 @@ class APIPaymentController extends Controller
 					$j ++;
 				}
 			}
-			$ticket->code = bcrypt( ( $date ) . ( $passenger->id ) );
+            $r_code = substr($passenger->token,5);
+		    $ticket->code = ($passenger->id) . ($date).($r_code);
 			$ticket->save();
 			/*  update passenger balance */
 			$passenger->balance = $passenger->balance - $price;
